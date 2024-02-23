@@ -58,7 +58,7 @@ public class Lab6P1_JorgeAguirre {
             if (i > 0) sumaIzquierda += ListaDNumeros[i - 1];
             sumaDerecha -= ListaDNumeros[i];
 
-            int diferenciaActual = Math.abs(sumaIzquierda - sumaDerecha);
+            int diferenciaActual = MiPropioSacaAbsoluto(sumaIzquierda - sumaDerecha);
             if (diferenciaActual < diferenciaMasPequena) {
                 indiceMasCercano = i;
                 diferenciaMasPequena = diferenciaActual;
@@ -67,4 +67,56 @@ public class Lab6P1_JorgeAguirre {
 
         return new int[]{sumaIzquierda, sumaDerecha + ListaDNumeros[indiceMasCercano], indiceMasCercano}; // Ajuste para incluir el elemento en la suma derecha
     }
+        public static int MiPropioSacaAbsoluto(int numero) {
+        // Si el número es negativo, lo multiplica por -1
+        if (numero < 0) {
+            return numero * -1;
+        } else {
+            // Si el número es positivo o cero, lo devuelve sin cambios
+            return numero;
+        }
+    }
+    
+    
 }
+
+
+/*
+
+
+
+
+Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese cadena (formato número-número): ");
+        String input = scanner.nextLine();
+        String[] partes = input.split("-");
+        int numeroDeCadenas = Integer.parseInt(partes[0]);
+        int longitudDeCadenas = Integer.parseInt(partes[1]);
+
+        if (longitudDeCadenas < 2 || longitudDeCadenas > 6) {
+            System.out.println("El segundo número debe ser entre 2 y 6.");
+            return;
+        }
+
+        // Generar el arreglo de cadenas
+        String[] arreglo = new String[numeroDeCadenas];
+        Random random = new Random();
+        boolean[] letraInicialUsada = new boolean[26]; // Para A-Z
+
+        for (int i = 0; i < numeroDeCadenas; i++) {
+            char[] cadena = new char[longitudDeCadenas];
+            int primeraLetra;
+
+            do {
+                primeraLetra = random.nextInt(26) + 65; // Generar una letra mayúscula (A-Z)
+            } while (letraInicialUsada[primeraLetra - 65]); // Asegurar que la primera letra sea única
+
+            letraInicialUsada[primeraLetra - 65] = true;
+            cadena[0] = (char) primeraLetra;
+
+            for (int j = 1; j < longitudDeCadenas; j++) {
+                cadena[j] = (char) (random.nextInt(26) + 65); // Generar letra mayúscula aleatoria
+            }
+
+
+*/
